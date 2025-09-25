@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>成績結果</h2>
+  <p id="result"></p>
+  <script>
+      const params = new
+  URLSearchParams(location.search);
+      const f = 
+  Number(params.get('fname') || 0);
+      const l = 
+  Number(params.get('lname') || 0);
+      const k = 
+  Number(params.get('kname') || 0);
+      const avg = ((f + l + k)/3).toFixed(2);
+
+  document.getElementById('result').textContent = 
+      `平時成績: ${f}, 期中成績: ${l}, 期末成績: ${k}, 總成績:${avg}`;
+  </script>
+
+<p></p>
+
+</body>
+</html>
