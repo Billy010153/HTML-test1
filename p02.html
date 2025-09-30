@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>成績結果</h2>
+  <p>成績計算方式:0.4平時 + 0.3期中 + 0.3期末</p>
+  <div id="list"></div>
+  <a href="p01.html">新增</a>
+  <script>
+    const KEY = 'scores';
+    const params = new URLSearchParams(location.search);
+
+      if ((params.get('ACTION')) === 'NEW') {
+      const z = params.get('zname');
+      const f = Number(params.get('fname') || 0);
+      const l = Number(params.get('lname') || 0);
+      const k = Number(params.get('kname') || 0);
+      const u = (0.4*f + 0.3*l + 0.3*k).toFixed(2);
+
+      const list = JSON.parse(localStorage.getItem(KEY) || '[]');
+      list.push({z,f,l,k,u});
+      list.sort((x,y)=> y.u - x.u);
+      localStorage.setItem(KEY, JSON.stringify(list));
+    }
+
+    const list = JSON.parse(localStorage.getItem(KEY) || '[]');
+    let html = "";
+    for (let i=0; i<list.length; i++) {
+      html += (i+1) + ". " + list[i].z +
+              " | 平時成績:" + list[i].f +
+              " | 期中成績:" + list[i].l +
+              " | 期末成績:" + list[i].k +
+              " | 總成績:" + list[i].u + "<br>";
+    }
+    document.getElementById("list").innerHTML = html;
+  </script>
+
+
+</body>
+</html>
