@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
 <body>
 
-  <h2>成績結果</h2>
-  <p>成績計算方式:0.4平時 + 0.3期中 + 0.3期末</p>
+  <h2 style="background-color:DodgerBlue;">成績結果</h2>
+  <p style="border:2px solid Tomato;">成績計算方式:0.4平時 + 0.3期中 + 0.3期末</p>
+  <img src="istockphoto.jpg" alt="Congratuation" style="width:400px;height:200px;">
   <div id="list"></div>
-  <a href="p01.html">新增</a>
+  <a href="p01.html" style="color:red;">新增</a>
   <script>
     const KEY = 'scores';
     const params = new URLSearchParams(location.search);
@@ -37,4 +44,5 @@
 
 
 </body>
+</head>
 </html>
